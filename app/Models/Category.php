@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+protected $fillable = [
+  'name',
+  'admin_id',
+];
+public function Admin(){
+        return $this->belongsTo(Admin::class, 'admin_id', 'id');
 }
+
+}
+

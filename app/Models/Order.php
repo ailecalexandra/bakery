@@ -8,5 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $table=''
+    protected $fillable =    [
+      'amount',
+      'buyer_id',
+      'seller_id'
+    ] ;
+    public function Buyer(){
+       return $this->hasOne(Buyer::class,'id','buyer_id');
+    }
+    public function Seller(){
+      return $this->hasOne(Seller::class);
+    }
+    
+
+
+
+
 }
